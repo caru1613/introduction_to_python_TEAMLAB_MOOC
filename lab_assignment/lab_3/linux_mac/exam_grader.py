@@ -17,7 +17,7 @@ def get_number_of_subjects():
     # """
     #
     # ===Modify codes below=================
-    number_of_subjects = None
+    number_of_subjects = int(input())
     # ======================================
     return number_of_subjects
 
@@ -32,6 +32,9 @@ def sum_of_scores(number_of_subjects):
         total_score = total_score + score
     return total_score
 
+def get_average_score(total_score, number_of_subjects):
+	average = (float)(total_score / number_of_subjects)
+	return average
 
 # Help Funtion - 수정하지 말 것
 def print_exam_grader(average_score):

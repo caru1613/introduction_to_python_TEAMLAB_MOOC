@@ -21,8 +21,11 @@ def is_positive_number(integer_str_value):
     # '''
     try:
         # ===Modify codes below=============
-        # 시작전 반드시 'pass'를 지울 것
-        pass
+        integer_value = int(integer_str_value)
+        if integer_value > 0:
+            return True
+        else:
+            return False
 
         # ==================================
     except ValueError:
@@ -42,8 +45,10 @@ def get_factorial_value(integer_value):
     #    5040
     # '''
     # ===Modify codes below=============
+    if integer_value == 1:
+	    return 1
 
-    result = None
+    result = integer_value * get_factorial_value(integer_value - 1)
 
     # ==================================
     return result
@@ -51,7 +56,16 @@ def get_factorial_value(integer_value):
 def main():
     user_input = 999
     # ===Modify codes below=============
-
+    while user_input != 0:
+        user_input = input("Input a positive number : ")
+        if is_positive_number(user_input):
+            ret = get_factorial_value(int(user_input))
+            print(ret)
+        elif user_input == '0':
+            user_input = 0
+            print("Thank you for using this program")
+        else:
+            print("Input again, Please")
     # ==================================
 
 if __name__ == "__main__":

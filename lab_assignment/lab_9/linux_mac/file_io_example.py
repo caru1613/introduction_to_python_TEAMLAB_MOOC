@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*-
 
 def get_file_contents(filename):
+
     # '''
     # Input:
     #   - filename : 문자열값으로 처리할 파일의 이름
@@ -11,8 +12,9 @@ def get_file_contents(filename):
     # >>> fie.get_file_contents("1984.txt").split("\n")[0]
     # GEORGE ORWELL
     # ===Modify codes below=============
-    contents = None
-
+    f = open(filename, 'r')
+    contents = f.read()
+    f.close()
     # ==================================
     return contents
 
@@ -27,8 +29,10 @@ def get_number_of_characters_with_blank(filename):
     # >>> fie.get_number_of_characters_with_blank("1984.txt")
     # 558841
     # ===Modify codes below=============
-    result = None
-
+    f = open(filename, 'r')
+    contents = f.read()
+    result = len(contents)
+    print(result)
     # ==================================
     return result
 
@@ -44,10 +48,16 @@ def get_number_of_characters_without_blank(filename):
     # >>> fie.get_number_of_characters_without_blank("1984.txt")
     # 459038
     # ===Modify codes below=============
-    result = None
+    f = open(filename, 'r')
+    contents = f.read().replace(" ", "").replace("\n", "").replace("\t","").strip()
+    result = len(contents)
+    print(result)
+    f.close()
 
     # ==================================
     return result
+
+#get_number_of_characters_without_blank("1984.txt")
 
 def get_number_of_lines(filename):
     # '''
@@ -61,10 +71,13 @@ def get_number_of_lines(filename):
     # >>> fie.get_number_of_lines("1984.txt")
     # 1414
     # ===Modify codes below=============
-    result = None
-
+    
+    f = open(filename, "r")
+    contents = f.read().strip().split("\n")
+    result = len(contents)
     # ==================================
-    return None
+    print(result)
+    return result
 
 def get_number_of_target_words(filename, target_words):
     # '''
@@ -82,7 +95,12 @@ def get_number_of_target_words(filename, target_words):
     # >>> fie.get_number_of_words("1984.txt", "and")
     # 2750
     # ===Modify codes below=============
-    result = None
-
+    f = open(filename, "r")
+    contents = f.read().lower()
+    result = contents.count(target_words.lower())
+    print(result)
+    f.close()
     # ==================================
     return result
+
+get_number_of_target_words("1984.txt", "had")

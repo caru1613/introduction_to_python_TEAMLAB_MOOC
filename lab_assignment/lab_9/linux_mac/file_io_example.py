@@ -103,4 +103,4 @@ def get_number_of_target_words(filename, target_words):
     # ==================================
     return result
 
-get_number_of_target_words("1984.txt", "had")
+get_number_of_target_words("1984.txt", "and")

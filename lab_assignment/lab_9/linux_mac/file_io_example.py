@@ -29,9 +29,13 @@ def get_number_of_characters_with_blank(filename):
     # >>> fie.get_number_of_characters_with_blank("1984.txt")
     # 558841
     # ===Modify codes below=============
-    f = open(filename, 'r')
-    contents = f.read()
-    result = len(contents)
+    #f = open(filename, 'r')
+    #contents = f.read()
+    #result = len(contents)
+    #f.close()
+    with open(filename, 'r') as f:
+        contents = f.read()
+        result = len(contents)
     print(result)
     # ==================================
     return result
@@ -77,6 +81,7 @@ def get_number_of_lines(filename):
     result = len(contents)
     # ==================================
     print(result)
+    f.close()
     return result
 
 def get_number_of_target_words(filename, target_words):
